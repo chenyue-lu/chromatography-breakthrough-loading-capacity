@@ -163,7 +163,7 @@ This is the same feed-volume-based, hold-up-corrected estimate $DBC_{10}=C_F(Qt_
 
 Every flow satisfies the absolute normalized mass-balance criterion **≤0.01 (1%)** at both interpolated 10% breakthrough and simulation end. Across those evaluations, the largest absolute residual is **3.11093e-7** of cumulative inlet mass, or **0.0000311093%**, at simulation end for 1.0 mL/min.
 
-Output sampling, axial grid, and solver tolerances each meet the **1.0%** two-finest-level convergence criterion for both simulated breakthrough time and DBC₁₀ at every flow. The largest recorded relative change is **0.296457%**, for DBC₁₀ during axial-grid refinement at 0.5 mL/min. All unresolved-sensitivity disclosure fields are `none`; the supporting deltas and residuals are in [summary.csv](results/summary.csv).
+Output sampling, axial grid, and solver tolerances each meet the **1.0%** two-finest-level convergence criterion for both simulated breakthrough time and DBC₁₀ at every flow. The largest relative change **between the two finest tested levels** is **0.296457%**, for DBC₁₀ during axial-grid refinement at 0.5 mL/min. All unresolved-sensitivity disclosure fields are `none`; the supporting deltas and residuals are in [summary.csv](results/summary.csv).
 
 These checks support numerical consistency within the specified model and tested settings. They do not experimentally validate the hypothetical protein–resin system or guarantee results within 1% of a true physical value. Sequential one-factor refinement does not establish convergence for every possible combination of numerical settings.
 
