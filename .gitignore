@@ -1,0 +1,22 @@
+# Approved brief: local project instructions; no redistribution license supplied.
+/chromatography_mvp_project_brief.md
+
+# Local Python environment and installation downloads.
+/.venv/
+
+# Python bytecode and tool caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# HDF5 run files in the installed CADET-Process temporary simulation directory.
+/tmp/simulation_files/*.h5
+
+# Editor-local configuration and files.
+/.vscode/
+/.idea/
+*.swp
+*.swo
+*~

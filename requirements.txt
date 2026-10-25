@@ -1,0 +1,7 @@
+# Verified with Python 3.12.14; project random seed: 20261025.
+# Install the local solver separately: cadet-core==5.1.1 cadet-python==1.3.0.
+CADET-Process==0.12.0
+pandas==3.1.0
+NumPy==2.5.4
+SciPy==1.17.1
+Matplotlib==3.11.2
