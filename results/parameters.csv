@@ -1,0 +1,47 @@
+name,symbol,value,unit,cadet_mapping,provenance,source_or_rationale
+Column length,L,0.1,m,column.length / COL_LENGTH,sourced,"CADET-Workshop contributors, 03.1.1_chromatography.ipynb, Example 2, code cell 18 (zero-based), SHA256 bbabfa9503e24963ee8cbb306bf4887aa14031835d5ea84f0a9ede5d11572246; column.length = 0.1 m, unchanged."
+Column diameter,d,0.01,m,column.diameter / CROSS_SECTION_AREA,sourced,"CADET-Workshop contributors, 03.1.1_chromatography.ipynb, Example 2, code cell 18 (zero-based), SHA256 bbabfa9503e24963ee8cbb306bf4887aa14031835d5ea84f0a9ede5d11572246; column.diameter = 0.01 m, unchanged; area = pi*d^2/4."
+Packed-bed volume,V_bed,7.853981633974484e-06,m^3 bed,derived from column geometry,derived,Cylinder volume pi*d^2*L/4; includes interstitial and particle volumes.
+Interstitial porosity,epsilon_c,0.37,1,column.bed_porosity / COL_POROSITY,sourced,"CADET-Workshop contributors, 03.1.1_chromatography.ipynb, Example 2, code cell 18 (zero-based), SHA256 bbabfa9503e24963ee8cbb306bf4887aa14031835d5ea84f0a9ede5d11572246; column.bed_porosity = 0.37, unchanged."
+Particle porosity,epsilon_p,0.33,1,column.particle_porosity / PAR_POROSITY,sourced,"CADET-Workshop contributors, 03.1.1_chromatography.ipynb, Example 2, code cell 18 (zero-based), SHA256 bbabfa9503e24963ee8cbb306bf4887aa14031835d5ea84f0a9ede5d11572246; column.particle_porosity = 0.33, unchanged."
+Particle radius,r_p,4.5e-05,m,column.particle_radius / PAR_RADIUS,sourced,"CADET-Workshop contributors, 03.1.1_chromatography.ipynb, Example 2, code cell 18 (zero-based), SHA256 bbabfa9503e24963ee8cbb306bf4887aa14031835d5ea84f0a9ede5d11572246; column.particle_radius = 4.5e-5 m, unchanged."
+Axial dispersion,D_ax,2e-07,m^2/s,column.axial_dispersion / COL_DISPERSION,adapted,"CADET-Workshop contributors, 03.1.1_chromatography.ipynb, Example 2, code cell 18 (zero-based), SHA256 bbabfa9503e24963ee8cbb306bf4887aa14031835d5ea84f0a9ede5d11572246; unchanged 2e-7 m^2/s transferred to hypothetical protein; fixed at all flows."
+Film mass transfer,k_f,0.0001,m/s,column.film_diffusion / FILM_DIFFUSION,adapted,"CADET-Workshop contributors, 03.1.1_chromatography.ipynb, Example 2, code cell 18 (zero-based), SHA256 bbabfa9503e24963ee8cbb306bf4887aa14031835d5ea84f0a9ede5d11572246; equal [1e-4, 1e-4] m/s entries reduced to one assumed protein; fixed at all flows."
+Pore accessibility,F_acc,1.0,1,column.pore_accessibility / PORE_ACCESSIBILITY,assumed,All intraparticle pore liquid is accessible to the hypothetical protein.
+Protein molar mass,M,50.0,kg/mol,reporting only; not a CADET input,assumed,Hypothetical 50 kDa protein; used only to convert molar amounts to mass.
+Feed concentration,C_F,0.02,mol/m^3 liquid,feed.c / CONST_COEFF,assumed,"Fixed hypothetical molar step; C_F*M = 1 kg/m^3, equivalent to 1 mg/mL."
+Langmuir capacity,q_max,2.0,mol/m^3 solid,binding.capacity / MCL_QMAX,assumed,"Hypothetical solid-phase saturation loading, not DBC per packed-bed volume."
+Adsorption rate,k_a,0.05,m^3/(mol*s),binding.adsorption_rate / MCL_KA,assumed,Hypothetical finite-rate adsorption in dq/dt = k_a*c_p*(q_max-q)-k_d*q.
+Desorption rate,k_d,0.0001,1/s,binding.desorption_rate / MCL_KD,assumed,Hypothetical finite-rate desorption; no fitted or measured kinetics.
+Equilibrium coefficient,K_eq,500.0,m^3/mol,binding.k_eq = k_a/k_d,derived,k_a/k_d; q_eq = q_max*K_eq*c_p/(1+K_eq*c_p).
+Initial bulk liquid,c_0,0.0,mol/m^3 liquid,column.c / INIT_C,assumed,Initially solute-free interstitial liquid at every axial cell.
+Initial pore liquid,c_p0,0.0,mol/m^3 liquid,column.cp / INIT_CP,assumed,Initially solute-free pore liquid at every axial cell.
+Initial adsorbed loading,q_0,0.0,mol/m^3 solid,column.q / INIT_Q,assumed,Initially unloaded solid phase at every axial cell.
+Column hold-up volume,V_H,4.538815986273854e-06,m^3 liquid,derived; column-only hold-up,derived,V_bed*[epsilon_c+(1-epsilon_c)*epsilon_p]; no extra-column volume.
+Flow rate,Q_0.5,0.5,mL/min,feed.flow_rate / CONNECTIONS (converted to m^3/s),sourced,"Approved brief, Mandatory MVP Scope item 2: exactly 0.5, 1.0, 2.0 mL/min."
+Flow rate,Q_1,1.0,mL/min,feed.flow_rate / CONNECTIONS (converted to m^3/s),sourced,"Approved brief, Mandatory MVP Scope item 2: exactly 0.5, 1.0, 2.0 mL/min."
+Flow rate,Q_2,2.0,mL/min,feed.flow_rate / CONNECTIONS (converted to m^3/s),sourced,"Approved brief, Mandatory MVP Scope item 2: exactly 0.5, 1.0, 2.0 mL/min."
+Output sampling level 1,n_sample,100.0,samples/residence time,simulator.time_resolution = t_R/n_sample,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Output sampling level 2,n_sample,200.0,samples/residence time,simulator.time_resolution = t_R/n_sample,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Output sampling level 3,n_sample,400.0,samples/residence time,simulator.time_resolution = t_R/n_sample,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Axial grid level 1,n_col,20.0,cells,column.discretization.ncol / NCOL,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Axial grid level 2,n_col,40.0,cells,column.discretization.ncol / NCOL,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Axial grid level 3,n_col,80.0,cells,column.discretization.ncol / NCOL,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Relative tolerance level 1,rtol,1e-06,1,time_integrator_parameters.reltol / RELTOL,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Absolute tolerance level 1,atol,1e-08,mol/m^3,time_integrator_parameters.abstol / ABSTOL,sourced,"Approved brief, applied in native molar concentration units."
+Relative tolerance level 2,rtol,1e-07,1,time_integrator_parameters.reltol / RELTOL,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Absolute tolerance level 2,atol,1e-09,mol/m^3,time_integrator_parameters.abstol / ABSTOL,sourced,"Approved brief, applied in native molar concentration units."
+Relative tolerance level 3,rtol,1e-08,1,time_integrator_parameters.reltol / RELTOL,sourced,Approved brief: Numerical Refinement Hyperparameters.
+Absolute tolerance level 3,atol,1e-10,mol/m^3,time_integrator_parameters.abstol / ABSTOL,sourced,"Approved brief, applied in native molar concentration units."
+Baseline samples_per_residence_time,samples_per_residence_time,200.0,samples/residence time,simulator.time_resolution = t_R/n_sample,sourced,Approved brief: prescribed baseline.
+Baseline axial_cells,axial_cells,40.0,cells,column.discretization.ncol / NCOL,sourced,Approved brief: prescribed baseline.
+Baseline rtol,rtol,1e-07,1,time_integrator_parameters.reltol / RELTOL,sourced,Approved brief: prescribed baseline.
+Baseline atol,atol,1e-09,mol/m^3,time_integrator_parameters.abstol / ABSTOL,sourced,Approved brief: prescribed baseline.
+Selected samples_per_residence_time,samples_per_residence_time,100.0,samples/residence time,simulator.time_resolution = t_R/n_sample,derived,Sequential one-factor selection against the finest tested level for every flow and both metrics.
+Selected axial_cells,axial_cells,40.0,cells,column.discretization.ncol / NCOL,derived,Sequential one-factor selection against the finest tested level for every flow and both metrics.
+Selected rtol,rtol,1e-06,1,time_integrator_parameters.reltol / RELTOL,derived,Sequential one-factor selection against the finest tested level for every flow and both metrics.
+Selected atol,atol,1e-08,mol/m^3,time_integrator_parameters.abstol / ABSTOL,derived,Sequential one-factor selection against the finest tested level for every flow and both metrics.
+Project random seed,seed,20261025.0,1,random.seed and numpy.random.seed,assumed,Fixed user-prescribed project seed 20261025.
+Raw ratio tolerance floor,delta_ratio_min,1e-06,1,raw_ratio_tolerance,assumed,Declared numerical screening floor for finite-precision raw ratios; no data correction.
+Raw ratio absolute-tolerance multiplier,f_atol,4.0,1,raw_ratio_tolerance,assumed,Allowance for comparing two approximate concentrations; not a rigorous solver error bound.
+Selected raw ratio tolerance,delta_ratio,2e-06,1,raw_ratio_tolerance,derived,"max(1e-6, 4*selected_atol/C_F); raw output is never smoothed or clipped."
